@@ -116,6 +116,96 @@ threads:
     source: r/dataengineering
     topic: topics/schema-contracts-and-data-tests.md
     note: Thread body could not be fetched directly. The kept comment is the one search returned for this URL, and it matches the dbt contract and test docs.
+  - id: dbt-staging-before-union
+    title: Complex source transforms before a union belong above staging
+    url: https://www.reddit.com/r/dataengineering/comments/1ol5wr5/dbt_how_to_handle_complex_source_transformations/
+    source: r/dataengineering
+    topic: topics/layer-layout.md
+  - id: dbt-cicd-process
+    title: CI/CD process for dbt models
+    url: https://www.reddit.com/r/dataengineering/comments/yi5ay3/cicd_process_for_dbt_models/
+    source: r/dataengineering
+    topic: topics/secrets-and-ci.md
+  - id: fact-surrogate-key-hash
+    title: Surrogate key strategy for fact tables
+    url: https://www.reddit.com/r/dataengineering/comments/1h0foff/surrogate_key_strategy_for_fact_tables/
+    source: r/dataengineering
+    topic: topics/surrogate-keys.md
+  - id: ci-rebuilt-production
+    title: CI job rebuilt production tables when a pull request opened
+    url: https://www.reddit.com/r/dataengineering/comments/1dt4tik/cicd_dbt_job_is_not_creating_temp_schemas_wtf/
+    source: r/dataengineering
+    topic: topics/environment-schemas.md
+  - id: airflow-silent-failure
+    title: Airflow failure callback did not fire when the worker never ran
+    url: https://www.reddit.com/r/dataengineering/comments/zf40rw/how_do_you_like_to_alert_for_airflow_errors/
+    source: r/dataengineering
+    topic: topics/failure-alerts.md
+  - id: bigquery-limit-full-scan
+    title: LIMIT does not reduce BigQuery bytes scanned
+    url: https://www.reddit.com/r/dataengineering/comments/1gnyqhx/why_is_neither_distinct_nor_limit_encouraged_in/
+    source: r/dataengineering
+    topic: topics/partition-filters.md
+  - id: kafka-replay-duplicates
+    title: Kafka replays duplicated transactions and some events were treated as gone
+    url: https://www.reddit.com/r/dataengineering/comments/1atccw5/question_on_data_pipeline_and_kafka_events/
+    source: r/dataengineering
+    topic: topics/kafka-offsets.md
+  - id: bigquery-mask-views
+    title: Policy tags do not mask BigQuery consumption views
+    url: https://www.reddit.com/r/dataengineering/comments/1oy6dn0/how_do_you_handle_data_privacy_in_bigquery/
+    source: r/dataengineering
+    topic: topics/column-masks.md
+  - id: dbt-source-access
+    title: Who can read source tables developers build from
+    url: https://www.reddit.com/r/dataengineering/comments/1d4fl1j/how_does_your_team_grant_access_to_source_tables/
+    source: r/dataengineering
+    topic: topics/model-grants.md
+  - id: airflow-catchup-storm
+    title: Catchup launched a run for every missed window
+    url: https://www.reddit.com/r/dataengineering/comments/lyu1k5/why_does_apache_airflow_keep_running/
+    source: r/dataengineering
+    topic: topics/catchup-storms.md
+  - id: timezone-on-incremental-backfill
+    title: Inconsistent timestamp zones split a business date
+    url: https://www.reddit.com/r/dataengineering/comments/1l1lpdz/dbt_incremental_models_with_insert_overwrite/
+    source: r/dataengineering
+    topic: topics/timestamp-zones.md
+  - id: orphaned-custom-schemas
+    title: Cleanup missed relations in custom schemas
+    url: https://www.reddit.com/r/dataengineering/comments/10wrlve/dbt_clean_your_warehouse_of_old_and_deprecated/
+    source: r/dataengineering
+    topic: topics/orphaned-relations.md
+  - id: bigquery-row-access
+    title: Use the built-in row access policy
+    url: https://www.reddit.com/r/bigquery/comments/1jjfcfb/row_level_security/
+    source: r/bigquery
+    topic: topics/row-access-policies.md
+  - id: airflow-alert-fanout
+    title: One mail per failed task flooded the inbox
+    url: https://www.reddit.com/r/dataengineering/comments/1njibu9/how_to_avoid_email_floods_from_airflow_dag/
+    source: r/dataengineering
+    topic: topics/alert-fanout.md
+  - id: snapshot-rename
+    title: Renamed source column in a dbt snapshot
+    url: https://www.reddit.com/r/dataengineering/comments/1i8sbzm/dbt_how_do_you_handle_upstream_schema_changes/
+    source: r/dataengineering
+    topic: topics/snapshot-column-rename.md
+  - id: airflow-external-monitor
+    title: Do not monitor Airflow only from Airflow
+    url: https://www.reddit.com/r/dataengineering/comments/1o2tgtq/need_airflow_dag_monitoring_tips/
+    source: r/dataengineering
+    topic: topics/external-airflow-monitoring.md
+  - id: kafka-connect-flush
+    title: S3 sink never reached flush.size
+    url: https://www.reddit.com/r/dataengineering/comments/wfvaub/kafka_s3_sink_connector_does_not_dump_data/
+    source: r/dataengineering
+    topic: topics/connector-flush.md
+  - id: stream-completeness
+    title: A stream has no last record
+    url: https://www.reddit.com/r/dataengineering/comments/1k41dxp/streaming_how_do_you_know_if_things_are_complete/
+    source: r/dataengineering
+    topic: topics/streaming-completeness.md
   - id: airflow-cosmos-dbt-versions
     title: Trigger dbt Core jobs for Snowflake using Airflow
     url: https://stackoverflow.com/questions/79744735/trigger-dbt-core-jobs-for-snowflake-using-airflow
