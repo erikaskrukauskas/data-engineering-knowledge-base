@@ -1,0 +1,125 @@
+captured: 2026-10-17
+trust: field-report
+promote_when:
+  - The post names the stack and versions where behavior depends on them.
+  - The post names the failure, such as duplicates, a wiped table, or a retry that changes results.
+  - The post names a fix.
+  - The fix agrees with the canonical page on the topic note.
+skip:
+  - Career, salary, and "what should I learn" posts.
+  - Vendor pitches and tool advertisements.
+  - Answers with no stack, no error, and no accepted or highly voted solution.
+
+reddit:
+  - name: r/dataengineering
+    url: https://www.reddit.com/r/dataengineering/
+    members_approx: 480000
+    use: Pipeline design, orchestration, warehouses, and tool tradeoffs. Largest community and noisiest feed.
+  - name: r/etl
+    url: https://www.reddit.com/r/etl/
+    members_approx: 11000
+    use: Ingestion, workflow tools, and ETL systems alongside dbt.
+  - name: r/apachespark
+    url: https://www.reddit.com/r/apachespark/
+    use: Shuffle, skew, partitions, and job failures.
+  - name: r/databricks
+    url: https://www.reddit.com/r/databricks/
+    members_approx: 20000
+    use: Delta Lake, Unity Catalog, cluster cost, and migrations off self-managed Spark.
+  - name: r/snowflake
+    url: https://www.reddit.com/r/snowflake/
+    use: Warehouses, streams and tasks, cost, and dbt on Snowflake.
+  - name: r/bigquery
+    url: https://www.reddit.com/r/bigquery/
+    use: Partitioning, slots, incremental models, and query cost.
+
+stackoverflow:
+  note: Prefer questions with an accepted or highly voted answer, versions, the warehouse, and the error text. Sort tag pages by votes.
+  tags:
+    - tag: airflow
+      url: https://stackoverflow.com/questions/tagged/airflow?tab=Votes
+      questions_approx: 10700
+      collect: Idempotent tasks, scheduling, XCom, sensors, and running dbt from a DAG.
+      topic: topics/airflow-orchestration.md
+    - tag: snowflake-cloud-data-platform
+      url: https://stackoverflow.com/questions/tagged/snowflake-cloud-data-platform?tab=Votes
+      questions_approx: 11600
+      collect: MERGE, streams, tasks, warehouses, and semi-structured data.
+    - tag: apache-spark
+      url: https://stackoverflow.com/questions/tagged/apache-spark?tab=Votes
+      collect: Joins, partitions, skew, and execution plans.
+      topic: topics/spark-layout.md
+    - tag: pyspark
+      url: https://stackoverflow.com/questions/tagged/pyspark?tab=Votes
+      collect: DataFrame jobs, partition columns, and file layout.
+      topic: topics/spark-layout.md
+    - tag: google-bigquery
+      url: https://stackoverflow.com/questions/tagged/google-bigquery?tab=Votes
+      collect: Partitioned tables, MERGE, and slot or scan cost.
+    - tag: dbt
+      url: https://stackoverflow.com/questions/tagged/dbt?tab=Votes
+      questions_approx: 1600
+      collect: Incremental models, unique_key, full refresh, snapshots, and hooks.
+      topic: topics/incremental-and-backfill.md
+    - tag: databricks
+      url: https://stackoverflow.com/questions/tagged/databricks?tab=Votes
+      collect: Workflows, job clusters, and Unity Catalog.
+      topic: topics/spark-layout.md
+    - tag: delta-lake
+      url: https://stackoverflow.com/questions/tagged/delta-lake?tab=Votes
+      collect: MERGE, OPTIMIZE, schema evolution, and the transaction log.
+      topic: topics/spark-layout.md
+    - tag: aws-glue
+      url: https://stackoverflow.com/questions/tagged/aws-glue?tab=Votes
+      collect: Ingestion jobs, crawlers, and bookmarks.
+    - tag: azure-data-factory
+      url: https://stackoverflow.com/questions/tagged/azure-data-factory?tab=Votes
+      collect: Copy activity, pipelines, and integration runtimes.
+    - tag: apache-kafka
+      url: https://stackoverflow.com/questions/tagged/apache-kafka?tab=Votes
+      collect: Topics, consumer offsets, and retention when the project streams.
+  thin_tags:
+    - tag: data-engineering
+      url: https://stackoverflow.com/questions/tagged/data-engineering
+      questions_approx: 60
+      note: Too small to mine. Use the tool tags above.
+
+threads:
+  - id: idempotent-pipelines
+    title: How do you design idempotent data pipelines?
+    url: https://www.reddit.com/r/dataengineering/comments/1stehve/how_do_you_design_idempotent_data_pipelines_in/
+    source: r/dataengineering
+    topic: topics/idempotent-loads.md
+  - id: incremental-backfill-deletes
+    title: Incremental loading with backfill, idempotence, and source deletions
+    url: https://www.reddit.com/r/dataengineering/comments/13n60lq/are_there_common_approaches_to_designing_a/
+    source: r/dataengineering
+    topic: topics/deletes-and-late-data.md
+  - id: airflow-dag-tips
+    title: Airflow DAG tips from production failures
+    url: https://www.reddit.com/r/dataengineering/comments/1lbenix/any_airflow_orchestrating_dags_tips/
+    source: r/dataengineering
+    topic: topics/airflow-orchestration.md
+  - id: airflow-dbt-medallion
+    title: Airflow and dbt together in a medallion layout
+    url: https://www.reddit.com/r/dataengineering/comments/1k83uee/how_to_use_airflow_and_dbt_together_in_a/
+    source: r/dataengineering
+    topic: topics/airflow-and-dbt.md
+  - id: dbt-insert-overwrite-duplicates
+    title: dbt insert_overwrite backfill causing duplicates
+    url: https://www.reddit.com/r/dataengineering/comments/1l1lpdz/dbt_incremental_models_with_insert_overwrite/
+    source: r/dataengineering
+    topic: topics/incremental-and-backfill.md
+  - id: dbt-tests-and-contracts
+    title: dbt tests find ingestion problems late; contracts name the interface
+    url: https://www.reddit.com/r/dataengineering/comments/vdp7wl/so_youre_using_dbt_testswhats_next_in_data_quality/
+    source: r/dataengineering
+    topic: topics/schema-contracts-and-data-tests.md
+    note: Thread body could not be fetched directly. The kept comment is the one search returned for this URL, and it matches the dbt contract and test docs.
+  - id: airflow-cosmos-dbt-versions
+    title: Trigger dbt Core jobs for Snowflake using Airflow
+    url: https://stackoverflow.com/questions/79744735/trigger-dbt-core-jobs-for-snowflake-using-airflow
+    source: stackoverflow
+    tags: [airflow, dbt, snowflake-cloud-data-platform]
+    topic: topics/airflow-and-dbt.md
+    note: Version and dependency failure. Store it on the stack note, not as a design principle.
