@@ -136,5 +136,105 @@ The Stack Overflow tag [`data-engineering`](https://stackoverflow.com/questions/
 | [Production service identity](topics/service-principal-prod.md) | The production job does not run as a person |
 | [New columns on old rows](topics/new-columns-old-rows.md) | A schema change does not backfill values into existing rows |
 | [Local shuffle reader](topics/local-shuffle-reader.md) | AQE reads a shuffle locally when it no longer needs the exchange |
+| [Semantic aggregation time](topics/semantic-agg-time.md) | A semantic model names its aggregation time dimension |
+| [Semantic model names](topics/semantic-name-underscores.md) | A semantic model name does not contain a double underscore |
+| [Semantic primary entity](topics/semantic-primary-entity.md) | Every semantic dimension is tied to one entity |
+| [Time dimension granularity](topics/semantic-time-granularity.md) | A time dimension declares the grain of the column |
+| [Derived semantic expressions](topics/semantic-derived-expr.md) | A derived dimension or entity has an expr |
+| [Metric YAML placement](topics/semantic-metric-placement.md) | A simple metric stays on its model, and a cross-model metric stays at the top level |
+| [Metric filter selection](topics/semantic-filter-selection.md) | A filter-only use of a semantic model is not a dbt selection edge |
+| [Dimension name scope](topics/semantic-dimension-scope.md) | Dimension names are unique for one primary entity |
+| [Simple metric aggregation](topics/simple-metric-agg.md) | A simple metric names an aggregation |
+| [Cumulative time spine](topics/cumulative-time-spine.md) | A cumulative metric has a time spine before it is queried |
+| [Non-additive balances](topics/non-additive-balance.md) | A balance is not summed across time |
+| [Metric rollup grain](topics/metric-rollup-grain.md) | A query does not roll a metric finer than the column grain |
+| [Ratio filter scope](topics/ratio-filter-scope.md) | A ratio filter is applied to the side that should be filtered |
+| [Derived metric aliases](topics/derived-metric-alias.md) | A derived expression uses the aliases of its input metrics |
+| [Conversion metric window](topics/conversion-metric-window.md) | A conversion metric names the entity, the two events, and the window |
+| [Metric filter syntax](topics/metric-filter-syntax.md) | A metric filter uses the MetricFlow template, not raw SQL |
+| [Unit test file path](topics/unit-test-yaml-path.md) | A unit test is defined under the models directory |
+| [Unit tests in production](topics/unit-tests-in-prod.md) | Production builds do not spend a warehouse on static unit tests |
+| [Unit test inputs](topics/unit-test-missing-input.md) | Every ref and source in a unit-tested model is an input |
+| [Unit test join aliases](topics/unit-test-join-alias.md) | Joined tables in a unit-tested model are aliased |
+| [Incremental unit test expectation](topics/unit-test-incremental-expect.md) | An incremental unit test expects the rows to merge, not the table after the merge |
+| [Ephemeral unit test input](topics/unit-test-ephemeral-input.md) | An ephemeral parent is mocked as SQL |
+| [Unit test struct fields](topics/unit-test-struct-fields.md) | A BigQuery STRUCT fixture lists every field |
+| [Local unit test compute](topics/unit-test-local-compute.md) | Local unit tests are opt-in and only where DuckDB can translate the SQL |
+| [Empty parents for unit tests](topics/unit-test-empty-parents.md) | Unit test parents exist before the test runs |
+| [SQL unit test columns](topics/unit-test-sql-columns.md) | A SQL unit-test fixture includes every column |
+| [Versioned model unit tests](topics/unit-test-versioned-models.md) | A unit test on a versioned model runs on each version unless you say otherwise |
+| [Sensor poke mode](topics/sensor-poke-mode.md) | A long sensor wait does not hold a worker slot |
+| [Sensor reschedule interval](topics/sensor-reschedule-interval.md) | A reschedule sensor waits at least a minute between checks |
+| [Sensor soft fail](topics/sensor-soft-fail.md) | A sensor timeout fails the task unless skip is the business rule |
+| [Sensor timeout clock](topics/sensor-timeout-clock.md) | A sensor timeout counts from the first poke, including reschedule delays |
+| [Deferrable sensors](topics/deferrable-sensor.md) | A long wait defers to the triggerer instead of occupying a worker |
+| [Delta change feed enablement](topics/delta-cdf-enable.md) | Change data feed is on before a reader asks for changes |
+| [Change feed retention](topics/delta-cdf-vacuum.md) | VACUUM does not delete change data a reader still needs |
+| [Change feed and column mapping](topics/delta-cdf-column-mapping.md) | A change-feed read does not span a non-additive schema change |
+| [Change feed stream start](topics/delta-cdf-stream-start.md) | A CDF stream names the version where changes begin |
+| [Seeds are not raw loads](topics/seed-not-raw.md) | A seed is a small static mapping, not a CSV extract |
+| [Sensitive seeds](topics/seed-sensitive.md) | A seed file does not hold passwords or personal data |
+| [Seed column changes](topics/seed-column-refresh.md) | A changed seed header is loaded with a full refresh |
+| [Seed column types](topics/seed-column-types.md) | A seed column that is not a number is given an explicit type |
+| [Hooks inside a transaction](topics/hook-inside-transaction.md) | A statement that cannot run inside a transaction is marked that way |
+| [Hook order](topics/hook-order.md) | Package hooks run before project hooks, and model hooks run last |
+| [Hook render on empty runs](topics/hook-render-empty.md) | A hook that references a relation calls render when the run may be empty |
+| [Stream offset advance](topics/stream-offset-advance.md) | A Snowflake stream advances only when a DML statement consumes it |
+| [Stream staleness](topics/stream-staleness.md) | A stream is consumed before its stale-after time |
+| [Stream has-data checks](topics/stream-has-data-tasks.md) | A true stream-has-data result is consumed even when the select is empty |
+| [One stream per consumer](topics/stream-one-consumer.md) | Two jobs do not share one Snowflake stream |
+| [Standard stream net changes](topics/stream-standard-delta.md) | A standard stream does not return a row that was inserted and then deleted |
+| [View change tracking](topics/stream-view-tracking.md) | A stream on a view has change tracking on the view and its tables |
+| [Stream schema changes](topics/stream-schema-change.md) | A source schema change is compatible with the stream offset |
+| [Replacing a streamed table](topics/stream-replace-source.md) | CREATE OR REPLACE on a streamed table is a new history |
+| [Append-only stream deletes](topics/stream-append-only-deletes.md) | An append-only stream keeps inserts that were later deleted |
+| [Insert-only external streams](topics/stream-insert-only-external.md) | An external insert-only stream does not report a removed file |
+| [Clustering column order](topics/cluster-column-order.md) | The first clustering column is the one queries filter first |
+| [Clustering existing data](topics/cluster-existing-data.md) | Altering a table to add clustering does not rewrite old blocks |
+| [Clustering small tables](topics/cluster-small-tables.md) | Clustering is for tables and partitions large enough to have blocks |
+| [Clustering and long-term storage](topics/cluster-storage-pricing.md) | An unpartitioned table ages into long-term storage only when the whole table is quiet |
+| [Streaming watermark](topics/streaming-watermark.md) | A windowed stream declares how late an event may be |
+| [Watermark output mode](topics/watermark-output-mode.md) | Append mode waits for the watermark before it emits a window |
+| [Stream-stream joins](topics/stream-stream-join.md) | An outer or semi stream join has watermarks and a time condition |
+| [Session window limits](topics/session-window-limits.md) | A streaming session window is not written in update mode |
+| [Streaming checkpoint](topics/streaming-checkpoint.md) | A fault-tolerant stream writes its checkpoint to durable storage |
+| [Stateful query split](topics/stateful-query-split.md) | A streaming query keeps one stateful operation |
+| [Seed downstream builds](topics/seed-downstream-build.md) | A seed is selected by name when downstream models must rerun |
+| [Change feed row images](topics/cdf-change-types.md) | An update in the change feed is a preimage and a postimage |
+| [Audit hook rollback](topics/hook-audit-rollback.md) | An audit row that must survive a failed model is written outside the transaction |
+| [Metric names](topics/metric-name-shape.md) | A metric name is unique and lowercase |
+| [Semantic entity joins](topics/semantic-entity-join.md) | Entities with the same name are the join keys |
+| [Unit test exit codes](topics/unit-test-exit-code.md) | A unit test failure is one failure, not a count of bad rows |
+| [Sensor backoff](topics/sensor-exponential-backoff.md) | A flaky remote check backs off instead of poking on a fixed short interval |
+| [Change feed writer version](topics/cdf-writer-version.md) | A table with change data feed is not written by Delta 1.2.1 or older |
+| [Clustering block pruning](topics/cluster-block-pruning.md) | A clustered query filters the clustered columns without wrapping them |
+| [Late data bound](topics/streaming-late-data-bound.md) | A watermark delay is the lateness the product will still count |
+| [Seed tests](topics/seed-properties.md) | A seed that models ref has the same grain tests as a model |
+| [Stream metadata columns](topics/stream-metadata-columns.md) | A stream consumer reads the metadata columns, not only the payload |
+| [Stream stale-after visibility](topics/stream-stale-after-role.md) | The role that checks staleness can see the source retention |
+| [Streams on shared tables](topics/stream-shared-retention.md) | A stream on a shared table does not extend the provider's retention |
+| [Clustering SQL dialect](topics/cluster-sql-dialect.md) | Clustered tables are queried and written with GoogleSQL |
+| [Reclustering and slots](topics/cluster-recluster-capacity.md) | Automatic reclustering does not add query slots |
+| [Streaming output modes](topics/streaming-output-matrix.md) | The output mode matches the query shape |
+| [Chained window time](topics/streaming-window-time.md) | A second window is applied to the window time, not to the window struct |
+| [Streaming source replay](topics/streaming-source-replay.md) | A restarted stream can replay only a source that supports it |
+| [State store locality](topics/state-store-locality.md) | Streaming state stays on the executor that already loaded it |
+| [RocksDB state memory](topics/rocksdb-memory-limit.md) | A RocksDB memory cap is a soft limit |
+| [Multiple hook statements](topics/hook-multiple-statements.md) | Several hook statements are a list, in order |
+| [Selecting one seed](topics/seed-one-at-a-time.md) | A seed command can load one file |
+| [Change feed version bounds](topics/cdf-version-bounds.md) | A change-feed batch read is inclusive of the start and end |
+| [Change data folder](topics/cdf-empty-folder.md) | An empty change-data folder does not mean the feed is off |
+| [Unit test macro overrides](topics/unit-test-macro-overrides.md) | A unit test sets the macro and variable values the branch needs |
+| [File sensor mode](topics/file-sensor-defer.md) | A file wait uses the file sensor and a mode that releases the worker |
+| [Time spine nulls](topics/fill-nulls-timespine.md) | A metric that must show zeros joins the time spine and fills nulls |
+| [One semantic model per dbt model](topics/semantic-one-model.md) | A dbt model defines one semantic model |
+| [Conversion constant properties](topics/conversion-constant-properties.md) | A conversion matches on the properties that define the same subject |
+| [Complete mode state](topics/streaming-complete-mode-state.md) | Complete mode keeps every aggregate |
+| [Post-hook statistics](topics/hook-spark-analyze.md) | A Spark table that needs statistics gets them in a post-hook |
+| [Seed full refresh cascade](topics/seed-drop-cascade.md) | A seed full refresh drops objects that depend on the seed table |
+| [Stream transaction lock](topics/stream-explicit-transaction.md) | Statements that must see one stream delta share a transaction |
+| [First cluster column filters](topics/cluster-filter-first-column.md) | Queries filter the leading cluster column when that is how the table was ordered |
+| [Watermark cleanup conditions](topics/streaming-watermark-cleanup-conditions.md) | State cleanup requires append or update, the right column, and the call before the aggregation |
+| [Unit tests stay in the project](topics/unit-test-current-project.md) | A unit test targets a SQL model in the current project |
 
 Communities, tags, and thread URLs are in [`sources/catalog.yaml`](sources/catalog.yaml).
